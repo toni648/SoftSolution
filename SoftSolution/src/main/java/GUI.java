@@ -51,13 +51,20 @@ public class GUI extends JFrame {
         grid.setHgap(50);
         JPanel panelGrid = new JPanel(grid);
         panelGrid.add(kNummer);
-        panelGrid.add(kg);
-        panelGrid.add(groesse);
-        panelGrid.add(cm);
-        panelGrid.add(BMI);
-        panelGrid.add(resBmi);
-        panelGrid.add(Kategorie);
-        panelGrid.add(resKat);
+        panelGrid.add(nr);
+        panelGrid.add(zaehlerArt);
+        panelGrid.add(zart);
+        panelGrid.add(zaehlerNummer);
+        panelGrid.add(znr);
+        panelGrid.add(datum);
+        panelGrid.add(date);
+        panelGrid.add(eingeb);
+        panelGrid.add(insert);
+        panelGrid.add(zaehlerStand);
+        panelGrid.add(zStand);
+        panelGrid.add(kommentar);
+        panelGrid.add(kommi);
+
         JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
         panelBrdLayout.add(calc, BorderLayout.CENTER);
