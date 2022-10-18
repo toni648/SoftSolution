@@ -3,7 +3,7 @@ import java.util.Date;
 public class Ablesebogen {
     String kundenNummer;
     int zählernummer;
-    Date datum = new Date();
+    Date datum;
     boolean neu_eingebaut;
     int zählerstand;
     String kommentar;

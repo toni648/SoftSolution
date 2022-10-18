@@ -65,12 +65,11 @@ public class GUI extends JFrame {
         panelGrid.add(kommentar);
         panelGrid.add(kommi);
 
-        JPanel panelBrdLayout = new JPanel(new BorderLayout());
+       JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
-        panelBrdLayout.add(calc, BorderLayout.CENTER);
         con.add(panelBrdLayout);
 
-        calc.addActionListener(new ActionListener() {
+       /* calc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 calcBmi(kg, cm, resBmi);
@@ -91,26 +90,14 @@ public class GUI extends JFrame {
                     calcBmi(kg, cm, resBmi);
                 }
             }
-        });
+        });*/
 
-        setSize(400, 100);
+        setSize(600, 500);
         setVisible(true);
-    }
-
-    private void calcBmi(final JTextField kg, final JTextField cm, final JLabel resBmi) {
-        double size = Double.parseDouble(cm.getText()) / 100;
-        double weight = Double.parseDouble(kg.getText());
-        double bmi = weight / (size*size);
-        resBmi.setText(String.format("%.2f", bmi));
-        // TODO: hier Fallunterscheidung Kategorie...
     }
 
     private void exit() {
         System.exit(0);
     }
 
-    public static void main(String[] args) {
-        new BmiRechner();
-
-    }
 }
