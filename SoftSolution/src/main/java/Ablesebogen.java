@@ -1,16 +1,15 @@
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Ablesebogen {
     String kundenNummer;
-    int zaehlernummer;
+    String zaehlernummer;
     String zaehlerArt;
-    LocalDate datum;
-    boolean neu_eingebaut;
-    int zaehlerstand;
+    String datum;
+    String neu_eingebaut;
+    String zaehlerstand;
     String kommentar;
 
-    public Ablesebogen(String kundenNummer,String zaehlerArt, int zählernummer, LocalDate datum, boolean neu_eingebaut, int zaehlerstand, String kommentar) {
+    public Ablesebogen(String kundenNummer, String zaehlernummer, String zaehlerArt, String datum, String neu_eingebaut, String zaehlerstand, String kommentar) {
         this.kundenNummer = kundenNummer;
         this.zaehlernummer = zaehlernummer;
         this.zaehlerArt = zaehlerArt;
@@ -20,7 +19,6 @@ public class Ablesebogen {
         this.kommentar = kommentar;
     }
 
-
     public String getKundenNummer() {
         return kundenNummer;
     }
@@ -29,35 +27,43 @@ public class Ablesebogen {
         this.kundenNummer = kundenNummer;
     }
 
-    public int getZaehlernummer() {
+    public String getZaehlernummer() {
         return zaehlernummer;
     }
 
-    public void setZaehlernummer(int zaehlernummer) {
+    public void setZaehlernummer(String zaehlernummer) {
         this.zaehlernummer = zaehlernummer;
     }
 
-    public LocalDate getDatum() {
+    public String getZaehlerArt() {
+        return zaehlerArt;
+    }
+
+    public void setZaehlerArt(String zaehlerArt) {
+        this.zaehlerArt = zaehlerArt;
+    }
+
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public boolean isNeu_eingebaut() {
+    public String getNeu_eingebaut() {
         return neu_eingebaut;
     }
 
-    public void setNeu_eingebaut(boolean neu_eingebaut) {
+    public void setNeu_eingebaut(String neu_eingebaut) {
         this.neu_eingebaut = neu_eingebaut;
     }
 
-    public int getZaehlerstand() {
+    public String getZaehlerstand() {
         return zaehlerstand;
     }
 
-    public void setZaehlerstand(int zaehlerstand) {
+    public void setZaehlerstand(String zaehlerstand) {
         this.zaehlerstand = zaehlerstand;
     }
 
@@ -67,5 +73,9 @@ public class Ablesebogen {
 
     public void setKommentar(String kommentar) {
         this.kommentar = kommentar;
+    }
+    public String getall(){
+        String a = kundenNummer + zaehlernummer + zaehlerArt + datum + neu_eingebaut + zaehlerstand + kommentar;
+        return a;
     }
 }

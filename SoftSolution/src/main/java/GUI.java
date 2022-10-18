@@ -1,5 +1,3 @@
-import jdk.vm.ci.meta.Local;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -11,7 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class GUI extends JFrame {
+public class GUI extends JFrame{
 
     public GUI() {
         super("Ablesebogen");
@@ -43,18 +41,35 @@ public class GUI extends JFrame {
         final JTextField nr = new JTextField();
         final JTextField zart = new JTextField();
         final JTextField znr = new JTextField();
-        final JTextField date = new JTextField();
+        final JTextField date = new JTextField(String.valueOf(LocalDate.now()));
         final JTextField insert = new JTextField();
         final JTextField zStand = new JTextField();
         final JTextField kommi = new JTextField();
 
         final JButton commitButton = new JButton("commit");
+        final JButton getData = new JButton("Daten ausgeben");
 
+        znr.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();
+                }
+            }
+        });
+        zStand.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();
+                }
+            }
+        });
 
         //final JButton calc = new JButton("berechne");
 
         final Container con = getContentPane();
-        GridLayout grid = new GridLayout(7, 2);
+        GridLayout grid = new GridLayout(8, 2);
         grid.setHgap(50);
         JPanel panelGrid = new JPanel(grid);
         panelGrid.add(kNummer);
@@ -71,55 +86,39 @@ public class GUI extends JFrame {
         panelGrid.add(zStand);
         panelGrid.add(kommentar);
         panelGrid.add(kommi);
+        panelGrid.add(commitButton);
+        panelGrid.add(getData);
 
 
        JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
-        con.add(commitButton, BorderLayout.SOUTH);
-
 
         con.add(panelBrdLayout);
 
-        commitButton.addKeyListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
+        commitButton.addActionListener(new ActionListener(){    //User Story 1
 
-                String kundenNummer = nr.getText();
-                int zaehlernummer = Integer.parseInt(zaehlerNummer.getText());
-                String zaehlerArt = zart.getText();
-                LocalDate datum = LocalDate.parse(date.getText());
-                boolean neu_eingebaut = Boolean.parseBoolean(insert.getText());
-                int zaehlerstand = Integer.parseInt(zStand.getText());
-                String kommentar = kommi.getText();
-
-                bogenLesen.createbogen(new Ablesebogen(
-                        kundenNummer,zaehlerArt,zaehlernummer,datum, neu_eingebaut, zaehlerstand,kommentar
-                ));
-            }
-        });
-
-       /* calc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calcBmi(kg, cm, resBmi);
+
+
+                bogenLesen.createbogen(new Ablesebogen(
+                        nr.getText(), zart.getText(),znr.getText()
+               ,date.getText(),insert.getText(),
+                        zStand.getText(),kommi.getText()));
+
+                nr.setText("");zart.setText("");znr.setText("");date.setText("");insert.setText("");
+                zStand.setText("");kommi.setText("");
+
             }
         });
-        kg.addKeyListener(new KeyAdapter() {
+        getData.addActionListener(new ActionListener(){    //User Story 2
+
             @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                    cm.requestFocusInWindow();
-                }
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(bogenLesen.getBogen());
             }
-        });
-        cm.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                    calcBmi(kg, cm, resBmi);
-                }
-            }
-        });*/
+            });
+
 
         setSize(600, 500);
         setVisible(true);

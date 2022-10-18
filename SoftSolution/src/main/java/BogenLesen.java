@@ -7,4 +7,14 @@ public class BogenLesen {
         bogen.add(abbogen);
     }
 
+    public ArrayList<Ablesebogen> getBogen() {
+        return bogen;
+    }
+    public String zurückgeben(){
+        String a="";
+        for(int i = 0; i< bogen.size();i++){
+
+        }
+        return a;
+    }
 }
