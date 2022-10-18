@@ -1,21 +1,25 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Ablesebogen {
     String kundenNummer;
-    int zählernummer;
-    Date datum = new Date();
+    int zaehlernummer;
+    String zaehlerArt;
+    LocalDate datum;
     boolean neu_eingebaut;
-    int zählerstand;
+    int zaehlerstand;
     String kommentar;
 
-    public Ablesebogen(String kundenNummer, int zählernummer, Date datum, boolean neu_eingebaut, int zählerstand, String kommentar) {
+    public Ablesebogen(String kundenNummer,String zaehlerArt, int zählernummer, LocalDate datum, boolean neu_eingebaut, int zaehlerstand, String kommentar) {
         this.kundenNummer = kundenNummer;
-        this.zählernummer = zählernummer;
+        this.zaehlernummer = zaehlernummer;
+        this.zaehlerArt = zaehlerArt;
         this.datum = datum;
         this.neu_eingebaut = neu_eingebaut;
-        this.zählerstand = zählerstand;
+        this.zaehlerstand = zaehlerstand;
         this.kommentar = kommentar;
     }
+
 
     public String getKundenNummer() {
         return kundenNummer;
@@ -25,19 +29,19 @@ public class Ablesebogen {
         this.kundenNummer = kundenNummer;
     }
 
-    public int getZählernummer() {
-        return zählernummer;
+    public int getZaehlernummer() {
+        return zaehlernummer;
     }
 
-    public void setZählernummer(int zählernummer) {
-        this.zählernummer = zählernummer;
+    public void setZaehlernummer(int zaehlernummer) {
+        this.zaehlernummer = zaehlernummer;
     }
 
-    public Date getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
 
@@ -49,12 +53,12 @@ public class Ablesebogen {
         this.neu_eingebaut = neu_eingebaut;
     }
 
-    public int getZählerstand() {
-        return zählerstand;
+    public int getZaehlerstand() {
+        return zaehlerstand;
     }
 
-    public void setZählerstand(int zählerstand) {
-        this.zählerstand = zählerstand;
+    public void setZaehlerstand(int zaehlerstand) {
+        this.zaehlerstand = zaehlerstand;
     }
 
     public String getKommentar() {
