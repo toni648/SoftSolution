@@ -27,24 +27,30 @@ public class GUI extends JFrame {
                 exit();
             }
         });
-        final JLabel knummer = new JLabel("Kundennummer");
-        final JLabel zaehlerart = new JLabel("Zählerart (Strom, Gas, Heizung, Wasser)");
-        final JLabel zaehlernummer = new JLabel("Zählernummer");
+        final JLabel kNummer = new JLabel("Kundennummer");
+        final JLabel zaehlerArt = new JLabel("Zählerart (Strom, Gas, Heizung, Wasser)");
+        final JLabel zaehlerNummer = new JLabel("Zählernummer");
         final JLabel datum = new JLabel("Datum");
+        final JLabel eingeb = new JLabel("neu eingebaut");
+        final JLabel zaehlerStand = new JLabel("Zählerstand");
+        final JLabel kommentar = new JLabel("Kommentar");
+
         final JTextField nr = new JTextField();
         final JTextField zart = new JTextField();
         final JTextField znr = new JTextField();
         final JTextField date = new JTextField();
+        final JTextField insert = new JTextField();
+        final JTextField zStand = new JTextField();
+        final JTextField kommi = new JTextField();
 
-        final JLabel resBmi = new JLabel();
-        final JLabel resKat = new JLabel();
-        final JButton calc = new JButton("berechne");
+
+        //final JButton calc = new JButton("berechne");
 
         final Container con = getContentPane();
         GridLayout grid = new GridLayout(7, 2);
         grid.setHgap(50);
         JPanel panelGrid = new JPanel(grid);
-        panelGrid.add(knummer);
+        panelGrid.add(kNummer);
         panelGrid.add(kg);
         panelGrid.add(groesse);
         panelGrid.add(cm);
