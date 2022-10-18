@@ -28,20 +28,23 @@ public class GUI extends JFrame {
             }
         });
         final JLabel knummer = new JLabel("Kundennummer");
-        final JLabel zart = new JLabel("Zählerart (Strom, Gas, Heizung, Wasser)");
-        final JLabel znummer = new JLabel("Zählernummer");
+        final JLabel zaehlerart = new JLabel("Zählerart (Strom, Gas, Heizung, Wasser)");
+        final JLabel zaehlernummer = new JLabel("Zählernummer");
         final JLabel datum = new JLabel("Datum");
-        final JTextField kg = new JTextField();
-        final JTextField cm = new JTextField();
+        final JTextField nr = new JTextField();
+        final JTextField zart = new JTextField();
+        final JTextField znr = new JTextField();
+        final JTextField date = new JTextField();
+
         final JLabel resBmi = new JLabel();
         final JLabel resKat = new JLabel();
         final JButton calc = new JButton("berechne");
 
         final Container con = getContentPane();
-        GridLayout grid = new GridLayout(4, 2);
+        GridLayout grid = new GridLayout(7, 2);
         grid.setHgap(50);
         JPanel panelGrid = new JPanel(grid);
-        panelGrid.add(gewicht);
+        panelGrid.add(knummer);
         panelGrid.add(kg);
         panelGrid.add(groesse);
         panelGrid.add(cm);
