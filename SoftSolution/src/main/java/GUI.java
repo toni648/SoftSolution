@@ -1,5 +1,3 @@
-import jdk.vm.ci.meta.Local;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -11,7 +9,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class GUI extends JFrame {
+public class GUI extends JFrame{
 
     public GUI() {
         super("Ablesebogen");
@@ -50,6 +48,22 @@ public class GUI extends JFrame {
 
         final JButton commitButton = new JButton("commit");
 
+        znr.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();
+                }
+            }
+        });
+        zStand.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();
+                }
+            }
+        });
 
         //final JButton calc = new JButton("berechne");
 
@@ -77,31 +91,26 @@ public class GUI extends JFrame {
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
         con.add(commitButton, BorderLayout.SOUTH);
 
-
         con.add(panelBrdLayout);
 
-        commitButton.addKeyListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
+        commitButton.addActionListener(new ActionListener(){
 
-                String kundenNummer = nr.getText();
-                int zaehlernummer = Integer.parseInt(zaehlerNummer.getText());
-                String zaehlerArt = zart.getText();
-                LocalDate datum = LocalDate.parse(date.getText());
-                boolean neu_eingebaut = Boolean.parseBoolean(insert.getText());
-                int zaehlerstand = Integer.parseInt(zStand.getText());
-                String kommentar = kommi.getText();
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
 
                 bogenLesen.createbogen(new Ablesebogen(
-                        kundenNummer,zaehlerArt,zaehlernummer,datum, neu_eingebaut, zaehlerstand,kommentar
-                ));
+                        nr.getText(), zart.getText(),zaehlerNummer.getText()
+               ,date.getText(),insert.getText(),
+                        zStand.getText(),kommi.getText()));
+
             }
         });
 
-       /* calc.addActionListener(new ActionListener() {
+      /*  commitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calcBmi(kg, cm, resBmi);
+               System.out.println("Hello");
             }
         });
         kg.addKeyListener(new KeyAdapter() {
