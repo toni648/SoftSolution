@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -16,11 +18,20 @@ public class GUIedit extends JFrame {
     GridLayout grid = new GridLayout(0,2);
     grid.setHgap(50);
     JPanel panelGrid= new JPanel(grid);
-        for (int i = 0; i> bogenLesen.bogen.size();i++){
-            grid.setRows(i);
+        for (int i = 0; i< bogenLesen.getbogen().size();i++){
+            grid.setRows(i+1);
             panelGrid.add(new JLabel(bogenLesen.zurückgeben()));
-            panelGrid.add(new JButton("edit"));
+            JButton button = new JButton("edit");
+            panelGrid.add(button);
+            int finalI = i;
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new GUIedit2(bogenLesen, finalI);
+                }
+            });
         }
+
         JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid,BorderLayout.WEST);
         con.add(panelBrdLayout);
@@ -29,7 +40,7 @@ public class GUIedit extends JFrame {
 
 
 
-        setSize(600, 500);
+        setSize(1300, 700);
         setVisible(true);
     }
     private void exit() {

@@ -110,7 +110,7 @@ public class GUI extends JFrame{
                ,date.getText(),insert.getText(),
                         zStand.getText(),kommi.getText()));
 
-                nr.setText("");zart.setText("");znr.setText("");date.setText("");insert.setText("");
+                nr.setText("");zart.setText("");znr.setText("");date.setText(String.valueOf(LocalDate.now()));insert.setText("");
                 zStand.setText("");kommi.setText("");
 
             }
