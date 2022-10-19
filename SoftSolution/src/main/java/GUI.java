@@ -22,7 +22,7 @@ public class GUI extends JFrame{
 
     public GUI() {
         super("Ablesebogen");
-        final BogenLesen bogenLesen = new BogenLesen();
+        BogenLesen bogenLesen = new BogenLesen();
 
         addWindowListener(new WindowAdapter() {
             @Override
@@ -48,6 +48,7 @@ public class GUI extends JFrame{
 
         final JButton commitButton = new JButton("commit");
         final JButton getData = new JButton("Daten ausgeben");
+        final JButton editButton = new JButton("bearbeiten");
 
         znr.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
@@ -92,6 +93,7 @@ public class GUI extends JFrame{
 
        JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
+        con.add(editButton, BorderLayout.SOUTH);
 
         con.add(panelBrdLayout);
 
@@ -115,10 +117,16 @@ public class GUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(bogenLesen.getBogen());
+                System.out.println(bogenLesen.zurückgeben());
             }
             });
+        editButton.addActionListener(new ActionListener(){    //User Story 1
 
+            @Override
+            public void actionPerformed (ActionEvent e) {
+                new GUIedit();
+            }
+        });
 
         setSize(600, 500);
         setVisible(true);

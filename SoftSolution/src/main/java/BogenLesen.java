@@ -10,10 +10,12 @@ public class BogenLesen {
     public ArrayList<Ablesebogen> getBogen() {
         return bogen;
     }
+
     public String zurückgeben(){
         String a="";
         for(int i = 0; i< bogen.size();i++){
-
+            Ablesebogen abbogen = bogen.get(i);
+            System.out.println(abbogen.getall());
         }
         return a;
     }
