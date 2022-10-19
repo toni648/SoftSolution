@@ -76,7 +76,7 @@ public class Ablesebogen {
     }
     public String getall(){
         String a ="Kundennummer:" + kundenNummer +" Zaehlernummer:"+ zaehlernummer +" Zaehlerart:"+ zaehlerArt +
-                " Datum:"+ datum +"neu eingebunden:"+ neu_eingebaut +" Zaehlerstand:"+ zaehlerstand +"Kommentar:"+ kommentar;
+                " Datum:"+ datum +" neu eingebunden:"+ neu_eingebaut +" Zaehlerstand:"+ zaehlerstand +" Kommentar:"+ kommentar;
         return a;
     }
 }

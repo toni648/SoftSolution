@@ -1,3 +1,5 @@
+
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -120,11 +122,11 @@ public class GUI extends JFrame{
                 System.out.println(bogenLesen.zurückgeben());
             }
             });
-        editButton.addActionListener(new ActionListener(){    //User Story 1
+        editButton.addActionListener(new ActionListener(){    //User Story 4
 
             @Override
             public void actionPerformed (ActionEvent e) {
-                new GUIedit();
+                new GUIedit(bogenLesen);
             }
         });
 
