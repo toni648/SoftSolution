@@ -14,6 +14,7 @@ public class BogenLesen {
         bogen.remove(i);
     }
 
+
     public void createbogen(Ablesebogen abbogen){
         bogen.add(abbogen);
     }
@@ -32,4 +33,5 @@ public class BogenLesen {
             a= abbogen.getall();
         return a;
     }
+
 }

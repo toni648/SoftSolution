@@ -10,6 +10,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 
@@ -230,13 +234,23 @@ public class GUI extends JFrame{
 
             }
         });
-       /* getData.addActionListener(new ActionListener(){    //User Story 2
+        getData.addActionListener(new ActionListener(){    //User Story 2
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(bogenLesen.zurückgeben());
+                JSONFormat json= new JSONFormat();
+
+            var fileName= "C:\\test.txt";
+                try (var fr = new FileWriter(fileName, StandardCharsets.UTF_8)) {
+        for(int i = 0; i <bogenLesen.getbogen().size();i++) {
+            json.setJason(bogenLesen,i);
+            fr.write(json.toString());
+        }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
-        });*/
+        });
         editButton.addActionListener(new ActionListener(){    //User Story 4
 
             @Override
