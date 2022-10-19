@@ -75,9 +75,18 @@ public class GUIedit2 extends JFrame {
                     zStand.getText(), kommi.getText()));
 
                 new GUIedit(bogenLesen);
+                setVisible(false);
             }
             });
 
+        deletButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bogenLesen.deleteBogen(i);
+                new GUIedit(bogenLesen);
+                setVisible(false);
+            }
+        });
 
         setSize(1300, 700);
         setVisible(true);

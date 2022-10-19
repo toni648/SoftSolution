@@ -9,6 +9,10 @@ public class BogenLesen {
     public Ablesebogen getbogen (int i){
         return bogen.get(i);
     }
+    public void deleteBogen(int i){
+
+        bogen.remove(i);
+    }
 
     public void createbogen(Ablesebogen abbogen){
         bogen.add(abbogen);
@@ -22,12 +26,10 @@ public class BogenLesen {
     }
 
 
-    public String zurückgeben(){
+    public String zurückgeben(int b){
         String a="";
-        for(int i = 0; i< bogen.size();i++){
-            Ablesebogen abbogen = bogen.get(i);
-            a= a+abbogen.getall();
-        }
+            Ablesebogen abbogen = bogen.get(b);
+            a= abbogen.getall();
         return a;
     }
 }
