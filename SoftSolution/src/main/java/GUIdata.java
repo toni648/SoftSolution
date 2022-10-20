@@ -21,10 +21,10 @@ public class GUIdata extends JFrame {
         JPanel panelGrid = new JPanel(grid);
         JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
-        panelGrid.add(new JLabel("Url eingeben:"));
+        panelGrid.add(new JLabel("URL eingeben:"));
         JTextField text = new JTextField();
         panelGrid.add(text);
-        JButton okButton = new JButton("ok");
+        JButton okButton = new JButton("OK");
         panelGrid.add(okButton);
 
         con.add(panelBrdLayout);
@@ -39,7 +39,6 @@ public class GUIdata extends JFrame {
                     for (int i = 0; i<bogenLesen.getbogen().size();i++){
                         writer.write(json.jsonString(bogenLesen,i));
                         setVisible(false);
-                        new ErrorGUI("du geile Sau");
                     }
                     writer.close();
                 } catch (Exception ex) {
