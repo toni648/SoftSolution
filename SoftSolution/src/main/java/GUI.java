@@ -75,7 +75,6 @@ public class GUI extends JFrame{
             }
         });
 
-        //final JButton calc = new JButton("berechne");
 
         final Container con = getContentPane();
         GridLayout grid = new GridLayout(8, 2);
@@ -125,17 +124,7 @@ public class GUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JSONFormat json= new JSONFormat();
-
-                try {
-                    FileWriter writer = new FileWriter("C:\\test\\test.txt");
-                    for (int i = 0; i<bogenLesen.getbogen().size();i++){
-                        writer.write(json.jsonString(bogenLesen,i));
-                    }
-                    writer.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                new GUIdata(bogenLesen);
             }
         });
         editButton.addActionListener(new ActionListener(){    //User Story 4
