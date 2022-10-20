@@ -30,6 +30,8 @@ public class GUI extends JFrame{
         super("Ablesebogen");
         BogenLesen bogenLesen = new BogenLesen();
 
+
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -97,7 +99,7 @@ public class GUI extends JFrame{
         panelGrid.add(getData);
 
 
-       JPanel panelBrdLayout = new JPanel(new BorderLayout());
+        JPanel panelBrdLayout = new JPanel(new BorderLayout());
         panelBrdLayout.add(panelGrid, BorderLayout.WEST);
         con.add(editButton, BorderLayout.SOUTH);
 
@@ -111,7 +113,7 @@ public class GUI extends JFrame{
 
                 bogenLesen.createbogen(new Ablesebogen(
                         nr.getText(), zart.getText(),znr.getText()
-               ,date.getText(),insert.getText(),
+                        ,date.getText(),insert.getText(),
                         zStand.getText(),kommi.getText()));
 
                 nr.setText("");zart.setText("");znr.setText("");date.setText(String.valueOf(LocalDate.now()));insert.setText("");
@@ -119,13 +121,23 @@ public class GUI extends JFrame{
 
             }
         });
-        /*getData.addActionListener(new ActionListener(){    //User Story 2
+        getData.addActionListener(new ActionListener(){    //User Story 2
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(bogenLesen.zurückgeben());
+                JSONFormat json= new JSONFormat();
+
+                try {
+                    FileWriter writer = new FileWriter("C:\\test\\test.txt");
+                    for (int i = 0; i<bogenLesen.getbogen().size();i++){
+                        writer.write(json.jsonString(bogenLesen,i));
+                    }
+                    writer.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
-            });*/
+        });
         editButton.addActionListener(new ActionListener(){    //User Story 4
 
             @Override
@@ -240,15 +252,15 @@ public class GUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JSONFormat json= new JSONFormat();
 
-            var fileName= "C:\\test.txt";
-                try (var fr = new FileWriter(fileName, StandardCharsets.UTF_8)) {
-        for(int i = 0; i <bogenLesen.getbogen().size();i++) {
-            json.setJason(bogenLesen,i);
-            fr.write(json.toString());
-        }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+            try {
+                FileWriter writer = new FileWriter("C:\\test\\test.txt");
+                for (int i = 0; i<bogenLesen.getbogen().size();i++){
+                    writer.write(json.jsonString(bogenLesen,i));
                 }
+                writer.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             }
         });
         editButton.addActionListener(new ActionListener(){    //User Story 4
