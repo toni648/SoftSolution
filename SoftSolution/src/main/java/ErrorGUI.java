@@ -6,7 +6,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ErrorGUI extends JFrame {
-    public ErrorGUI(String inhalt) {
+    public ErrorGUI(String inhalt){
 
         super("Errormeldung");
 
@@ -28,13 +28,17 @@ public class ErrorGUI extends JFrame {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 setVisible(false);
             }
         });
 
+        setSize(200, 100);
+        setVisible(true);
 
     }
-    private void exit() {
+    private void exit(){
+
         System.exit(0);
     }
 }
