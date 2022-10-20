@@ -35,6 +35,9 @@ public class GUIedit extends JFrame {
         JButton back = new JButton("back");
         con.add(back, BorderLayout.SOUTH);
 
+        JButton sort = new JButton("sort");
+        con.add(sort, BorderLayout.NORTH);
+
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
