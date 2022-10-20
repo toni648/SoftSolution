@@ -38,6 +38,13 @@ public class GUIedit extends JFrame {
         JButton sort = new JButton("sort");
         con.add(sort, BorderLayout.NORTH);
 
+        sort.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GUISort(bogenLesen);
+            }
+        });
+
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
