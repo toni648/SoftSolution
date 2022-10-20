@@ -17,11 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 
 public class GUI extends JFrame{
@@ -47,10 +43,11 @@ public class GUI extends JFrame{
         final JLabel kommentar = new JLabel("Kommentar");
 
         final JTextField nr = new JTextField();
-        final JTextField zart = new JTextField();
+        String[] cs = {"Strom", "Gas", "Heizung", "Wasser"};
+        final JComboBox<String> zart = new JComboBox<>(cs);
         final JTextField znr = new JTextField();
         final JTextField date = new JTextField(String.valueOf(LocalDate.now()));
-        final JTextField insert = new JTextField();
+        final JCheckBox insert = new JCheckBox();
         final JTextField zStand = new JTextField();
         final JTextField kommi = new JTextField();
 
@@ -109,13 +106,18 @@ public class GUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                String s = "False";
+                if(insert.isSelected()){
+                    s = "true";
+                }
+
 
                 bogenLesen.createbogen(new Ablesebogen(
-                        nr.getText(), zart.getText(),znr.getText()
-                        ,date.getText(),insert.getText(),
+                        nr.getText(), (String) zart.getSelectedItem(),znr.getText()
+                        ,date.getText(),s,
                         zStand.getText(),kommi.getText()));
 
-                nr.setText("");zart.setText("");znr.setText("");date.setText(String.valueOf(LocalDate.now()));insert.setText("");
+                nr.setText("");znr.setText("");date.setText(String.valueOf(LocalDate.now()));insert.setSelected(false);
                 zStand.setText("");kommi.setText("");
 
             }
