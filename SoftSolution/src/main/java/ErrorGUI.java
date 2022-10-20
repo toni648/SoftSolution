@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class ErrorGUI extends JFrame {
-    public ErrorGUI(String inhalt){
+    public ErrorGUI(String inhalt) {
 
         super("Errormeldung");
 
@@ -25,8 +26,15 @@ public class ErrorGUI extends JFrame {
         con.add(okButton, BorderLayout.CENTER);
 
         okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
 
 
-        }
+    }
+    private void exit() {
+        System.exit(0);
     }
 }

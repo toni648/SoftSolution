@@ -39,6 +39,7 @@ public class GUIdata extends JFrame {
                     for (int i = 0; i<bogenLesen.getbogen().size();i++){
                         writer.write(json.jsonString(bogenLesen,i));
                         setVisible(false);
+                        new ErrorGUI("du geile Sau");
                     }
                     writer.close();
                 } catch (Exception ex) {
